@@ -478,8 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error("Survey creation failed with status: " + response.status);
             }
             
-            showNotification(`✓ Thank you! Your feedback has been submitted successfully to our CRM system.`, 'success');
-            resetFeedbackForm();
+            // Redirect to Thank You page passing a generated reference number
+            const refNumber = 'SRV-' + Math.floor(Math.random() * 900000000 + 100000000);
+            window.location.href = `thankyou.html?ref=${refNumber}`;
             
         } catch (err) {
             console.error("Survey Form backend flow failed:", err);

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Submitted | XYZ Bank</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Decorative Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span class="govt-tag">XYZ BANK | SECURE DIGITAL BANKING</span>
+            <div class="top-links">
+                <a href="#" class="top-link">Screen Reader</a>
+                <a href="#" class="top-link">Skip to main content</a>
+                <span class="lang-selector">
+                    <span class="lang-opt active">English</span> | <span class="lang-opt">हिन्दी</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <svg width="50" height="50" viewBox="0 0 100 100" class="pnb-logo-svg">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D4B254" />
+                            <stop offset="100%" stop-color="#B08C34" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="20" y="20" width="60" height="60" rx="12" fill="#0A2540" />
+                    <path d="M 50 28 L 72 50 L 50 72 L 28 50 Z" fill="url(#logo-grad)" />
+                    <circle cx="50" cy="50" r="10" fill="#0A2540" />
+                    <path d="M 50 35 L 65 50 L 50 65 L 35 50 Z M 50 42 L 58 50 L 50 58 L 42 50 Z" fill="#FFFFFF" opacity="0.3"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand-name">XYZ BANK</span>
+                    <span class="brand-subtext">trusted digital relationship !</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary nav-btn">Support</button>
+                <button class="btn btn-primary nav-btn login-btn">Secure Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Thank You Card Container -->
+    <div class="app-layout">
+        <main class="survey-section">
+            <div class="survey-card text-center thankyou-panel">
+                <div class="thankyou-content-wrapper">
+                    <!-- Dynamic Animated Success Icon -->
+                    <div class="success-checkmark-circle">
+                        <div class="check-icon-main"></div>
+                    </div>
+                    
+                    <h1 class="thankyou-title">Thank You!</h1>
+                    <p class="thankyou-message">
+                        Your feedback has been successfully registered in our system. We appreciate you taking the time to share your experience with us.
+                    </p>
+                    
+                    <div class="reference-info-box">
+                        <span class="ref-label">Reference ID</span>
+                        <span id="ref-id-val" class="ref-number">SRV-764920194</span>
+                    </div>
+
+                    <p class="thankyou-helper-text">
+                        Your survey responses have been securely uploaded to the XYZ Bank CRM service. For any inquiries, please quote the reference ID above.
+                    </p>
+
+                    <div class="thankyou-actions pt-4">
+                        <a href="index.html" class="btn btn-primary btn-large">Fill Another Survey</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Links and Copyright -->
+    <footer class="main-footer">
+        <div class="footer-links-grid">
+            <div class="footer-column">
+                <h3>Personal Banking</h3>
+                <ul>
+                    <li><a href="#">Savings Account</a></li>
+                    <li><a href="#">Fixed Deposits</a></li>
+                    <li><a href="#">Home Loans</a></li>
+                    <li><a href="#">Credit Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Corporate Services</h3>
+                <ul>
+                    <li><a href="#">Business Accounts</a></li>
+                    <li><a href="#">Cash Management</a></li>
+                    <li><a href="#">Trade Finance</a></li>
+                    <li><a href="#">Merchant Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="#">Help & Support Centre</a></li>
+                    <li><a href="#">Submit Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Locate Branch / ATM</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#">Regulatory Disclosures</a></li>
+                    <li><a href="#">Cyber Security Tips</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 XYZ Bank. All rights reserved. Secure SSL Encrypted Portal.</p>
+            <p class="footer-disclaimer">Disclaimer: This is a high-fidelity survey dummy designed for mock verification and system integration testing.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Parse Reference ID from URL parameter or generate a random one
+            const urlParams = new URLSearchParams(window.location.search);
+            let refId = urlParams.get('ref');
+            
+            if (!refId) {
+                refId = 'SRV-' + Math.floor(Math.random() * 900000000 + 100000000);
+            }
+            
+            document.getElementById('ref-id-val').textContent = refId;
+        });
+    </script>
+</body>
+</html>
