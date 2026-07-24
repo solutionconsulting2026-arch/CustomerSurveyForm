@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Form | XYZ Bank</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Decorative Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span class="govt-tag">XYZ BANK | SECURE DIGITAL BANKING</span>
+            <div class="top-links">
+                <a href="#" class="top-link">Screen Reader</a>
+                <a href="#" class="top-link">Skip to main content</a>
+                <span class="lang-selector">
+                    <span class="lang-opt active">English</span> | <span class="lang-opt">हिन्दी</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <!-- SVG XYZ Bank Logo (Elegant Modern Diamond Globe Shape) -->
+                <svg width="50" height="50" viewBox="0 0 100 100" class="pnb-logo-svg">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D4B254" />
+                            <stop offset="100%" stop-color="#B08C34" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="20" y="20" width="60" height="60" rx="12" fill="#0A2540" />
+                    <!-- Abstract geometric diamond shape -->
+                    <path d="M 50 28 L 72 50 L 50 72 L 28 50 Z" fill="url(#logo-grad)" />
+                    <circle cx="50" cy="50" r="10" fill="#0A2540" />
+                    <path d="M 50 35 L 65 50 L 50 65 L 35 50 Z M 50 42 L 58 50 L 50 58 L 42 50 Z" fill="#FFFFFF" opacity="0.3"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand-name">XYZ BANK</span>
+                    <span class="brand-subtext">trusted digital relationship !</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary nav-btn">Support</button>
+                <button class="btn btn-primary nav-btn login-btn">Secure Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Main Layout Container -->
+    <div class="app-layout">
+        
+        <!-- Main Survey Form Wrapper -->
+        <main class="survey-section">
+            <div class="survey-card">
+                <div class="survey-header">
+                    <h1 class="survey-title">Customer Feedback Form</h1>
+                    <p class="survey-subtitle">Your satisfaction is our priority. Please share your experience to help us improve our services.</p>
+                </div>
+                
+                <!-- Notification Banner -->
+                <div id="notification-banner" class="notification-banner hidden">
+                    <div class="notification-content">
+                        <span class="notification-icon">i</span>
+                        <span id="notification-text">Notification message here</span>
+                    </div>
+                    <button type="button" class="close-notification">&times;</button>
+                </div>
+
+                <form id="feedback-form" novalidate>
+                    
+                    <!-- Section 1: Customer Authentication -->
+                    <div class="form-section card-inner">
+                        <h2 class="section-title">1. Customer Identification</h2>
+                        
+                        <div class="form-group">
+                            <label class="control-label">Identify using: <span class="required">*</span></label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-container">
+                                    <input type="radio" name="id_type" value="mobile" checked>
+                                    <span class="radio-checkmark"></span>
+                                    Registered Mobile Number
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="id_type" value="account">
+                                    <span class="radio-checkmark"></span>
+                                    Account Number
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group input-with-action">
+                            <label for="identifier-input" id="identifier-label" class="control-label">Registered Mobile Number: <span class="required">*</span></label>
+                            <div class="input-action-wrapper">
+                                <input type="text" id="identifier-input" class="form-control" placeholder="Enter 10-digit Mobile Number" maxlength="10">
+                                <button type="button" id="btn-send-otp" class="btn btn-action">Send OTP</button>
+                            </div>
+                            <span class="error-feedback" id="identifier-error">Mobile Number cannot be empty</span>
+                            <span class="success-feedback hidden" id="otp-success">✓ Identity Verified Successfully</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Demographic Details -->
+                    <div class="form-section card-inner">
+                        <h2 class="section-title">2. Demographic Details</h2>
+
+                        <div class="grid-2-col">
+                            <div class="form-group">
+                                <label for="customer-name" class="control-label">What is your Name? <span class="required">*</span></label>
+                                <input type="text" id="customer-name" class="form-control" placeholder="Enter your full name">
+                                <span class="error-feedback" id="name-error">Name cannot be empty</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Please select your Gender: <span class="required">*</span></label>
+                                <div class="radio-group-horizontal pt-3">
+                                    <label class="radio-container">
+                                        <input type="radio" name="gender" value="Male" checked>
+                                        <span class="radio-checkmark"></span>
+                                        Male
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="gender" value="Female">
+                                        <span class="radio-checkmark"></span>
+                                        Female
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="gender" value="Others">
+                                        <span class="radio-checkmark"></span>
+                                        Others
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <div class="form-group">
+                                <label class="control-label">What is your age? <span class="required">*</span></label>
+                                <div class="radio-group-horizontal pt-3">
+                                    <label class="radio-container">
+                                        <input type="radio" name="age_group" value="Under 18 years">
+                                        <span class="radio-checkmark"></span>
+                                        Under 18
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="age_group" value="18 to 60 years" checked>
+                                        <span class="radio-checkmark"></span>
+                                        18 to 60
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="age_group" value="60 years and above">
+                                        <span class="radio-checkmark"></span>
+                                        60+
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Which Account do you have? <span class="required">*</span></label>
+                                <div class="checkbox-grid pt-3">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="account_type" value="Savings" checked>
+                                        <span class="checkbox-checkmark"></span>
+                                        Savings
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="account_type" value="Current">
+                                        <span class="checkbox-checkmark"></span>
+                                        Current
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="account_type" value="Salary Account">
+                                        <span class="checkbox-checkmark"></span>
+                                        Salary
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="account_type" value="Others">
+                                        <span class="checkbox-checkmark"></span>
+                                        Others
+                                    </label>
+                                </div>
+                                <span class="error-feedback" id="account-type-error">Select at least one account type</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Section 3: Core Feedback Questions -->
+                    <div class="form-section card-inner">
+                        <h2 class="section-title">3. Feedback & Net Promoter Score (NPS)</h2>
+
+                        <!-- Q9 NPS Recommendation -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                9. How likely is it that you would recommend our bank to your family/ friends/ colleagues for taking the products? <span class="required">*</span>
+                            </label>
+                            <div class="nps-scale-wrapper">
+                                <div class="nps-options">
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="0">
+                                        <span>0</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="1">
+                                        <span>1</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="2">
+                                        <span>2</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="3">
+                                        <span>3</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="4">
+                                        <span>4</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="5">
+                                        <span>5</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_recommend" value="6">
+                                        <span>6</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_recommend" value="7">
+                                        <span>7</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_recommend" value="8">
+                                        <span>8</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_recommend" value="9">
+                                        <span>9</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_recommend" value="10">
+                                        <span>10</span>
+                                    </label>
+                                </div>
+                                <div class="nps-labels">
+                                    <span>Not Likely At All (0)</span>
+                                    <span>Extremely Likely (10)</span>
+                                </div>
+                            </div>
+                            <span class="error-feedback" id="nps-recommend-error">Please select a rating option</span>
+                        </div>
+
+                        <!-- Q10 Product Recommendation -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                10. Which product/ service of our bank would you recommend to others? (Multiple options can be selected) <span class="required">*</span>
+                            </label>
+                            <div class="checkbox-grid-3-col">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="recommend_products" value="Deposit Products">
+                                    <span class="checkbox-checkmark"></span>
+                                    Deposit Products
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="recommend_products" value="Loan Products">
+                                    <span class="checkbox-checkmark"></span>
+                                    Loan Products
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="recommend_products" value="Internet Banking/ Mobile Banking">
+                                    <span class="checkbox-checkmark"></span>
+                                    Internet/Mobile Banking
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="recommend_products" value="Others">
+                                    <span class="checkbox-checkmark"></span>
+                                    Others
+                                </label>
+                            </div>
+                            <span class="error-feedback" id="recommend-products-error">Please select at least one product/service</span>
+                        </div>
+
+                        <!-- Q11 Ease of Transaction -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                11. How easy was it for you to complete your transaction today/during the visit? <span class="required">*</span>
+                            </label>
+                            <div class="nps-scale-wrapper">
+                                <div class="nps-options">
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="0">
+                                        <span>0</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="1">
+                                        <span>1</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="2">
+                                        <span>2</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="3">
+                                        <span>3</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="4">
+                                        <span>4</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="5">
+                                        <span>5</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_ease" value="6">
+                                        <span>6</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_ease" value="7">
+                                        <span>7</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_ease" value="8">
+                                        <span>8</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_ease" value="9">
+                                        <span>9</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_ease" value="10">
+                                        <span>10</span>
+                                    </label>
+                                </div>
+                                <div class="nps-labels">
+                                    <span>Very Difficult (0)</span>
+                                    <span>Very Easy (10)</span>
+                                </div>
+                            </div>
+                            <span class="error-feedback" id="nps-ease-error">Please select a rating option</span>
+                        </div>
+
+                        <!-- Q12 Friendly Staff -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                12. The banking services representative/staff was friendly, helpful and efficient during the transaction? <span class="required">*</span>
+                            </label>
+                            <div class="likert-scale">
+                                <label class="likert-option">
+                                    <input type="radio" name="staff_friendliness" value="Strongly Agree">
+                                    <span class="likert-btn">Strongly Agree</span>
+                                </label>
+                                <label class="likert-option">
+                                    <input type="radio" name="staff_friendliness" value="Agree">
+                                    <span class="likert-btn">Agree</span>
+                                </label>
+                                <label class="likert-option">
+                                    <input type="radio" name="staff_friendliness" value="Neutral" checked>
+                                    <span class="likert-btn">Neutral</span>
+                                </label>
+                                <label class="likert-option">
+                                    <input type="radio" name="staff_friendliness" value="Disagree">
+                                    <span class="likert-btn">Disagree</span>
+                                </label>
+                                <label class="likert-option">
+                                    <input type="radio" name="staff_friendliness" value="Strongly Disagree">
+                                    <span class="likert-btn">Strongly Disagree</span>
+                                </label>
+                            </div>
+                            <span class="error-feedback" id="staff-friendliness-error">Please select an option</span>
+                        </div>
+
+                        <!-- Q13 Overall Service -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                13. How would you rate the overall service? (during the visit/today) <span class="required">*</span>
+                            </label>
+                            <div class="service-rating-options">
+                                <label class="service-option excel">
+                                    <input type="radio" name="overall_service" value="Excellent">
+                                    <div class="rating-icon">🏆</div>
+                                    <span class="rating-text">Excellent</span>
+                                </label>
+                                <label class="service-option good">
+                                    <input type="radio" name="overall_service" value="Good" checked>
+                                    <div class="rating-icon">😊</div>
+                                    <span class="rating-text">Good</span>
+                                </label>
+                                <label class="service-option avg">
+                                    <input type="radio" name="overall_service" value="Average">
+                                    <div class="rating-icon">😐</div>
+                                    <span class="rating-text">Average</span>
+                                </label>
+                                <label class="service-option poor">
+                                    <input type="radio" name="overall_service" value="Poor">
+                                    <div class="rating-icon">😞</div>
+                                    <span class="rating-text">Poor</span>
+                                </label>
+                            </div>
+                            <span class="error-feedback" id="overall-service-error">Please select a rating</span>
+                        </div>
+
+                        <!-- Q14 Future Likelihood -->
+                        <div class="feedback-question">
+                            <label class="question-label">
+                                14. How likely is it that you will use our services in future? <span class="required">*</span>
+                            </label>
+                            <div class="nps-scale-wrapper">
+                                <div class="nps-options">
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="0">
+                                        <span>0</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="1">
+                                        <span>1</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="2">
+                                        <span>2</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="3">
+                                        <span>3</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="4">
+                                        <span>4</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="5">
+                                        <span>5</span>
+                                    </label>
+                                    <label class="nps-cell nps-detractor">
+                                        <input type="radio" name="nps_future" value="6">
+                                        <span>6</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_future" value="7">
+                                        <span>7</span>
+                                    </label>
+                                    <label class="nps-cell nps-passive">
+                                        <input type="radio" name="nps_future" value="8">
+                                        <span>8</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_future" value="9">
+                                        <span>9</span>
+                                    </label>
+                                    <label class="nps-cell nps-promoter">
+                                        <input type="radio" name="nps_future" value="10">
+                                        <span>10</span>
+                                    </label>
+                                </div>
+                                <div class="nps-labels">
+                                    <span>Not Likely At All (0)</span>
+                                    <span>Extremely Likely (10)</span>
+                                </div>
+                            </div>
+                            <span class="error-feedback" id="nps-future-error">Please select a rating option</span>
+                        </div>
+
+                        <!-- Feedback Comments Textarea -->
+                        <div class="form-group">
+                            <label for="feedback-comments" class="control-label">Write short description for any feedback/suggestion: <span class="required">*</span></label>
+                            <textarea id="feedback-comments" class="form-control text-area-large" rows="4" placeholder="Enter your detailed feedback here..."></textarea>
+                            <span class="error-feedback" id="comments-error">Feedback description cannot be empty</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Form Verification and Submit -->
+                    <div class="form-section card-inner">
+                        <h2 class="section-title">4. Form Verification</h2>
+                        
+                        <div class="captcha-box-wrapper">
+                            <div class="form-group">
+                                <label for="captcha-input" class="control-label">Please enter Security Code: <span class="required">*</span></label>
+                                <input type="text" id="captcha-input" class="form-control captcha-input-field" placeholder="Enter Captcha Code" maxlength="6">
+                                <span class="error-feedback" id="captcha-error">Please enter valid captcha code</span>
+                            </div>
+                            <div class="captcha-render-area">
+                                <div class="captcha-canvas-container">
+                                    <canvas id="captcha-canvas" width="160" height="50"></canvas>
+                                </div>
+                                <button type="button" id="btn-refresh-captcha" class="btn btn-secondary-action" title="Refresh Captcha">
+                                    🔄 Refresh
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="submit-action-area pt-4">
+                            <button type="submit" id="btn-submit-survey" class="btn btn-primary btn-large btn-block">
+                                <span class="btn-text">Submit Feedback</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- OTP Modal Popup Screen -->
+    <div id="otp-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button type="button" class="close-modal-btn" id="btn-close-otp-modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🔒</div>
+                <h3 class="modal-title">Verification Code Sent</h3>
+                <p class="modal-subtitle">We have sent a 6-digit OTP verification code to your device. Please enter it below to complete verification.</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-group text-center">
+                    <input type="password" id="modal-otp-input" class="form-control text-center tracking-widest font-bold" placeholder="######" maxlength="6">
+                    <span class="error-feedback" id="modal-otp-error">Incorrect OTP code. Please try again.</span>
+                </div>
+                <button type="button" id="btn-modal-verify-otp" class="btn btn-primary btn-block">Verify Code</button>
+                <div class="modal-resend-row">
+                    <span class="resend-text">Didn't receive the code?</span>
+                    <button type="button" id="btn-modal-resend-otp" class="btn-resend-link">Resend OTP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Links and Copyright -->
+    <footer class="main-footer">
+        <div class="footer-links-grid">
+            <div class="footer-column">
+                <h3>Personal Banking</h3>
+                <ul>
+                    <li><a href="#">Savings Account</a></li>
+                    <li><a href="#">Fixed Deposits</a></li>
+                    <li><a href="#">Home Loans</a></li>
+                    <li><a href="#">Credit Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Corporate Services</h3>
+                <ul>
+                    <li><a href="#">Business Accounts</a></li>
+                    <li><a href="#">Cash Management</a></li>
+                    <li><a href="#">Trade Finance</a></li>
+                    <li><a href="#">Merchant Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="#">Help & Support Centre</a></li>
+                    <li><a href="#">Submit Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Locate Branch / ATM</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#">Regulatory Disclosures</a></li>
+                    <li><a href="#">Cyber Security Tips</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 XYZ Bank. All rights reserved. Secure SSL Encrypted Portal.</p>
+            <p class="footer-disclaimer">Disclaimer: This is a high-fidelity survey dummy designed for mock verification and system integration testing.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
